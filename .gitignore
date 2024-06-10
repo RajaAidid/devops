@@ -161,7 +161,3 @@ GitHub.sublime-settings
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
-
-Dockerfile
-docker-compose.yml
-migration

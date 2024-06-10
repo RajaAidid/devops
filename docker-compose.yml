@@ -1,0 +1,49 @@
+version: "3.8"
+
+name: docker-devops-lessons
+
+services:
+  db:
+    image: mysql:oraclelinux9
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: devops
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    volumes:
+      - /Users/rajaaidid/devops/devops_class/database:/var/lib/mysql
+    networks:
+      - mynetwork
+
+  backend:
+    build:
+      context: /Users/rajaaidid/devops/devops_class/DevopsClass
+    restart: always
+    environment:
+      MYSQL_HOST: db
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: devops
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    depends_on:
+      - db
+    volumes:
+      - /Users/rajaaidid/devops/devops_class/DevopsClass:/app
+    networks:
+      - mynetwork
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: /Users/rajaaidid/devops/devops_class/DevopsClassFront/dist
+    restart: always
+    volumes:
+      - /Users/rajaaidid/devops/devops_class/DevopsClassFront/dist:/usr/share/nginx/html:ro
+    ports:
+      - "80:80"
+
+networks:
+  mynetwork:
+    driver: bridge
