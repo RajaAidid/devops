@@ -11,8 +11,6 @@ services:
       MYSQL_DATABASE: devops
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
-    volumes:
-      - /Users/rajaaidid/devops/devops_class/database:/var/lib/mysql
     networks:
       - mynetwork
 
@@ -28,8 +26,6 @@ services:
       MYSQL_PASSWORD: admin
     depends_on:
       - db
-    volumes:
-      - /Users/rajaaidid/devops/devops_class/DevopsClass:/app
     networks:
       - mynetwork
     ports:
@@ -39,8 +35,6 @@ services:
     build:
       context: /Users/rajaaidid/devops/devops_class/DevopsClassFront/dist
     restart: always
-    volumes:
-      - /Users/rajaaidid/devops/devops_class/DevopsClassFront/dist:/usr/share/nginx/html:ro
     ports:
       - "80:80"
 
