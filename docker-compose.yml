@@ -16,7 +16,7 @@ services:
 
   backend:
     build:
-      context: /DevopsClass
+      context: DevopsClass
     restart: always
     environment:
       MYSQL_HOST: db
@@ -33,7 +33,7 @@ services:
 
   frontend:
     build:
-      context: /DevopsClassFront/dist
+      context: DevopsClassFront/dist
     restart: always
     ports:
       - "80:80"
