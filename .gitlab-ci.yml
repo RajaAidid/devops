@@ -27,20 +27,19 @@ build:
     - docker compose up -d
   artifacts:
     paths:
-      - ls
-      # - docker-compose.yml
+      - docker-compose.yml
 
 test:
   stage: test
   script:
-    - ls
-    # - apk add --no-cache python3 py3-pip
-    # - python3 -m venv /venv
-    # - source /venv/bin/activate
-    # - pip install pytest selenium
-    # - docker compose up -d
-    # - sleep 15
-    # - python test_devoptest.py
+    - apk update
+    - apk add --no-cache python3 py3-pip
+    - python3 -m venv /venv
+    - source /venv/bin/activate
+    - pip install pytest selenium
+    - docker compose up -d
+    - sleep 15
+    - python test_devopstest.py
   artifacts:
     paths:
       - docker-compose.yml
