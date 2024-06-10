@@ -24,7 +24,7 @@ build:
   stage: build
   script:
     - docker compose up -d
-  artifact:
+  artifacts:
     path:
       - docker-compose.yml
 
