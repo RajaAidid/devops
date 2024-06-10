@@ -23,10 +23,11 @@ before_script:
 build:
   stage: build
   script:
+    - ls
     - docker compose up -d
   artifacts:
     paths:
-      - ./docker-compose.yml
+      - docker-compose.yml
 
 test:
   stage: test
@@ -41,4 +42,4 @@ test:
     - python test_devoptest.py
   artifacts:
     paths:
-      - ./docker-compose.yml
+      - docker-compose.yml
