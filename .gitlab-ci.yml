@@ -25,7 +25,7 @@ build:
   script:
     - docker compose up -d
   artifacts:
-    path:
+    paths:
       - docker-compose.yml
 
 test:
@@ -40,5 +40,5 @@ test:
     - sleep 15
     - python test_devoptest.py
   artifacts:
-    path:
+    paths:
       - docker-compose.yml
