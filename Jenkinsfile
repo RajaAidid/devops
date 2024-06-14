@@ -22,7 +22,7 @@ pipeline{
    			cd venv/bin
       			ls
 			. ./activate
-			pip install -y pytest selenium
+			pip install pytest selenium
 			docker compose up -d
 			sleep 15
 			python3 test_devopstest.py
