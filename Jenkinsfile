@@ -25,6 +25,7 @@ pipeline{
 			pip install pytest selenium
 			docker compose up -d
 			sleep 15
+   			cd ../../
 			python3 test_devopstest.py
 			'''
 			}
