@@ -26,7 +26,7 @@ pipeline{
 			docker compose up -d
 			sleep 15
    			cd ../../
-			python3 test_devopstest.py
+			python3 ./test_devopstest.py
 			'''
 			}
 		}
