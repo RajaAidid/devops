@@ -16,11 +16,10 @@ services:
 
   backend:
     build:
-      context: DevopsClass
+      context: ./DevopsClass
     restart: always
     environment:
       POSTGRES_HOST: db
-      POSTGRES_ROOT_PASSWORD: password
       POSTGRES_DATABASE: devops
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
@@ -33,7 +32,7 @@ services:
 
   frontend:
     build:
-      context: DevopsClassFront/dist
+      context: ./DevopsClassFront/dist
     restart: always
     ports:
       - "80:80"
